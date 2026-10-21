@@ -14,5 +14,8 @@
   <developer id="io.github.metalmike17"><name>metalmike17</name></developer>
   <launchable type="desktop-id">io.github.metalmike17.ProtonMD.desktop</launchable>
   <content_rating type="oars-1.1"/>
-  <releases><release version="0.1.0" date="2026-10-21"/></releases>
+  <releases>
+    <release version="0.1.1" date="2026-10-21"/>
+    <release version="0.1.0" date="2026-10-21"/>
+  </releases>
 </component>
