@@ -1,6 +1,6 @@
 # Maintainer: metalmike17 <michaeljg0717@gmail.com>
 pkgname=protonmd
-pkgver=0.1.1
+pkgver=0.1.2
 pkgrel=1
 pkgdesc="Diagnose why Linux games won't run (Steam, Proton, Vulkan, prefixes)"
 arch=('any')
