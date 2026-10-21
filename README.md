@@ -10,6 +10,8 @@ safe fixes, each one shown and confirmed before it runs.
 
 > Unofficial. Not affiliated with Valve or Proton AG.
 
+![ProtonMD checking a game](docs/screenshot.png)
+
 ## What it checks
 
 - GPU driver, 64-bit and 32-bit Vulkan
