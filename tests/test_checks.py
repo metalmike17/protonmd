@@ -77,6 +77,19 @@ class Tests(unittest.TestCase):
             r = {x.id: x for x in gc.run_all(root, g)}["prefix"]
             self.assertEqual(r.status, Status.INFO)
 
+    def test_readonly_library_reports_instead_of_crashing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = make_steam(tmp, complete=False)
+            g = steam.scan_games(root)[0]
+            r = {x.id: x for x in gc.run_all(root, g)}["prefix"]
+            os.chmod(root / "steamapps/compatdata", 0o555)
+            try:
+                if os.access(root / "steamapps/compatdata", os.W_OK):
+                    self.skipTest("running as a user that ignores permissions")
+                self.assertIn("read-only", r.fix.run())
+            finally:
+                os.chmod(root / "steamapps/compatdata", 0o755)
+
     def test_reset_prefix_moves_dir(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = make_steam(tmp, complete=False)

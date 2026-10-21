@@ -35,7 +35,7 @@ From source: `python -m protonmd` (needs GTK4, libadwaita and PyGObject). Use `-
 ## Flatpak limitations
 
 The sandbox can't run host commands, so the Vulkan 64-bit check, Proton log scanning and
-running-game detection are unavailable. The native package has no such limits.
+running-game detection are unavailable, and Flatpak Steam (`com.valvesoftware.Steam`) libraries aren't visible. Use the native package for those. The native package has no such limits.
 
 ## Contributing
 

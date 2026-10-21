@@ -84,12 +84,21 @@ def check_prefix(root, game):
     return Result("prefix", "Wine prefix", Status.OK, f"Healthy, {steam.human(size)}")
 
 
+def _write_failed(err):
+    why = f" ({err.strerror})" if err is not None and getattr(err, "strerror", None) else ""
+    return ("Couldn't change this folder" + why + ". It is read-only for ProtonMD, which is the case for "
+            "Flatpak Steam libraries inside the Flatpak build. Use the native package or do it by hand.")
+
+
 def _reset_prefix_fix(game):
     def run():
         if _steam_running() and _game_running(game):
             return "Close the game first."
         dest = f"{game.prefix}.protonmd-bak-{int(time.time())}"
-        os.rename(game.prefix, dest)
+        try:
+            os.rename(game.prefix, dest)
+        except OSError as e:
+            return _write_failed(e)
         return f"Moved prefix to {dest}. Steam will create a fresh one on next launch."
     return Fix("Back up and reset prefix", run, command=f"mv compatdata/{game.appid} compatdata/{game.appid}.protonmd-bak-<time>")
 
@@ -123,6 +132,8 @@ def check_shader_cache(root, game):
     def run():
         if _game_running(game):
             return "Close the game first."
+        if not os.access(os.path.dirname(path), os.W_OK):
+            return _write_failed(None)
         shutil.rmtree(path, ignore_errors=True)
         return "Shader cache cleared. The first launch will recompile shaders."
     fix = Fix("Clear shader cache", run, command=f"rm -r steamapps/shadercache/{game.appid}")
