@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=ProtonMD
+Comment=Diagnose why Linux games won't run
+Exec=protonmd
+Icon=io.github.metalmike17.ProtonMD
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=proton;wine;steam;diagnostics;

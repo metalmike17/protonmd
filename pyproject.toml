@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "protonmd"
+version = "0.1.0"
+description = "Diagnose why Linux games won't run"
+license = { text = "GPL-3.0-or-later" }
+requires-python = ">=3.10"
+
+[project.scripts]
+protonmd = "protonmd.launcher:main"
+
+[tool.setuptools]
+packages = ["protonmd", "protonmd.checks"]

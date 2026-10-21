@@ -1,0 +1,28 @@
+# Maintainer: metalmike17 <michaeljg0717@gmail.com>
+pkgname=protonmd
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Diagnose why Linux games won't run (Steam, Proton, Vulkan, prefixes)"
+arch=('any')
+url="https://github.com/metalmike17/protonmd"
+license=('GPL-3.0-or-later')
+depends=('python' 'python-gobject' 'gtk4' 'libadwaita')
+makedepends=('python-build' 'python-installer' 'python-setuptools' 'python-wheel')
+optdepends=('vulkan-tools: Vulkan diagnostics'
+            'winetricks: install runtimes into prefixes'
+            'gamemode: GameMode check')
+source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+  cd "$pkgname-$pkgver"
+  python -m build --wheel --no-isolation
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  python -m installer --destdir="$pkgdir" dist/*.whl
+  install -Dm644 data/io.github.metalmike17.ProtonMD.desktop -t "$pkgdir/usr/share/applications/"
+  install -Dm644 data/io.github.metalmike17.ProtonMD.metainfo.xml -t "$pkgdir/usr/share/metainfo/"
+  install -Dm644 data/io.github.metalmike17.ProtonMD.svg -t "$pkgdir/usr/share/icons/hicolor/scalable/apps/"
+}
