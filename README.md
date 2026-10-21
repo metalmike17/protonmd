@@ -1,5 +1,7 @@
 # ProtonMD
 
+[![Tests](https://github.com/metalmike17/protonmd/actions/workflows/test.yml/badge.svg)](https://github.com/metalmike17/protonmd/actions/workflows/test.yml)
+
 Diagnose why a Linux game won't run.
 
 ProtonMD checks your GPU driver, Vulkan setup and kernel limits, then inspects each Steam game's
@@ -32,6 +34,12 @@ From source: `python -m protonmd` (needs GTK4, libadwaita and PyGObject). Use `-
 
 The sandbox can't run host commands, so the Vulkan 64-bit check, Proton log scanning and
 running-game detection are unavailable. The native package has no such limits.
+
+## Contributing
+
+Checks are plain Python in `protonmd/checks/`, and the known-bad launch options and log signatures are
+data in `protonmd/checks/rules.py`. New rules are the easiest way to help. Open an issue with the
+"New check" template or send a pull request with a test.
 
 ## Tests
 
