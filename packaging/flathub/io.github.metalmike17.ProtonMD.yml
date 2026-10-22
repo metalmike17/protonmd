@@ -30,4 +30,4 @@ modules:
       - type: git
         url: https://github.com/metalmike17/protonmd.git
         tag: v0.1.4
-        commit: d50ba31bfde08cd21b1630ea9ba5a6db320271ca
+        commit: 3a391d54e0bd7e5d3b40e78a99e835388a2450cf

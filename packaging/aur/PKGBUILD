@@ -12,7 +12,7 @@ optdepends=('vulkan-tools: Vulkan diagnostics'
             'winetricks: install runtimes into prefixes'
             'gamemode: GameMode check')
 source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
-sha256sums=('67e16c08246ca86680d1f89de5a5d1c75bfcaece37bf2eb3b714049f976f78d7')
+sha256sums=('7a9b4073a1f0742033be8fb99812d53353c3056e0188faaf99a14830727d9378')
 
 build() {
   cd "$pkgname-$pkgver"
