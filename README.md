@@ -24,13 +24,30 @@ safe fixes, each one shown and confirmed before it runs.
 
 ## Install
 
-Flatpak (from source):
+Download from the [latest release](https://github.com/metalmike17/protonmd/releases/latest). Each file has a `.sha256` next to it.
+
+**AppImage** (x86_64, bundles Python and GTK; built on a recent distro, so it needs a similarly recent glibc):
+
+    chmod +x ProtonMD-*-x86_64.AppImage
+    ./ProtonMD-*-x86_64.AppImage
+
+**Debian / Ubuntu / Mint** (needs GTK 4 and libadwaita 1, so Debian 12+ or Ubuntu 22.04+):
+
+    sudo apt install ./protonmd_*_all.deb
+
+**Fedora**:
+
+    sudo dnf install ./protonmd-*.noarch.rpm
+
+**Arch / CachyOS**: see `packaging/aur/PKGBUILD`.
+
+**Flatpak** (from source):
 
     flatpak-builder --user --install --force-clean build-dir io.github.metalmike17.ProtonMD.yml
 
-Arch / CachyOS: see `packaging/aur/PKGBUILD`.
+**From source**: `python -m protonmd` (needs GTK4, libadwaita and PyGObject). Use `--cli` for plain text output.
 
-From source: `python -m protonmd` (needs GTK4, libadwaita and PyGObject). Use `--cli` for plain text output.
+The .deb and .rpm packages are unsigned and have only been tested by unpacking and running the files, not by installing them on Debian or Fedora. Please open an issue if one fails to install.
 
 ## Flatpak limitations
 
