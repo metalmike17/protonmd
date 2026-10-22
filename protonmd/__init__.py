@@ -1,2 +1,2 @@
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 APP_ID = "io.github.metalmike17.ProtonMD"

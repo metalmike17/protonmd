@@ -1,5 +1,5 @@
 Name:           protonmd
-Version:        0.1.3
+Version:        0.1.4
 Release:        1%{?dist}
 Summary:        Diagnose why Linux games won't run
 License:        GPL-3.0-or-later
@@ -50,5 +50,8 @@ install -Dm644 data/io.github.metalmike17.ProtonMD.svg -t %{buildroot}%{_datadir
 %{_datadir}/icons/hicolor/scalable/apps/io.github.metalmike17.ProtonMD.svg
 
 %changelog
+* Wed Oct 21 2026 metalmike17 <michaeljg0717@gmail.com> - 0.1.4-1
+- Version bump; no code changes
+
 * Wed Oct 21 2026 metalmike17 <michaeljg0717@gmail.com> - 0.1.3-1
 - Initial RPM package
