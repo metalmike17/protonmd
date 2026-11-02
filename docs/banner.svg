@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 300" width="1280" height="300" role="img" aria-label="ProtonMD - diagnose why a Linux game will not run">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0D0F14"/><stop offset="1" stop-color="#07080C"/></linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/></linearGradient>
+    <mask id="gm"><rect width="1280" height="300" fill="url(#fade)"/></mask>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#00C8D6" stroke-opacity=".2"/></pattern>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#000" fill-opacity=".27"/></pattern>
+    <linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#00C8D6" stop-opacity="0"/><stop offset=".5" stop-color="#00C8D6"/><stop offset="1" stop-color="#FF2BD6" stop-opacity="0"/></linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow2" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <style>
+    .m{font-family:"JetBrains Mono","Fira Code","SF Mono",Consolas,"DejaVu Sans Mono",monospace}
+    @keyframes sweep{0%{transform:translateY(-20px);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(320px);opacity:0}}
+    @keyframes gl1{0%,84%,100%{transform:translate(0,0)}86%{transform:translate(-7px,2px)}88%{transform:translate(6px,-2px)}90%{transform:translate(-4px,0)}92%{transform:translate(0,0)}}
+    @keyframes gl2{0%,84%,100%{transform:translate(0,0)}86%{transform:translate(7px,-2px)}88%{transform:translate(-6px,2px)}90%{transform:translate(4px,0)}92%{transform:translate(0,0)}}
+    @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+    @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+    @keyframes spinr{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
+    @keyframes drift{from{transform:translateY(0)}to{transform:translateY(40px)}}
+    @keyframes rec{0%,60%{opacity:1}61%,100%{opacity:.15}}
+    .sweep{animation:sweep 5s linear infinite}.gl1{animation:gl1 6s infinite}.gl2{animation:gl2 6s infinite}
+    .cur{animation:blink 1s steps(1) infinite}.drift{animation:drift 4s linear infinite}.rec{animation:rec 1.6s linear infinite}
+    .r1{transform-origin:150px 150px;animation:spin 14s linear infinite}
+    .r2{transform-origin:150px 150px;animation:spinr 9s linear infinite}
+    @keyframes t0{0%,4%{opacity:0}7%,88%{opacity:1}95%,100%{opacity:0}}
+    .t0{animation:t0 11s linear infinite}
+    @keyframes t1{0%,17%{opacity:0}20%,88%{opacity:1}95%,100%{opacity:0}}
+    .t1{animation:t1 11s linear infinite}
+    @keyframes t2{0%,30%{opacity:0}33%,88%{opacity:1}95%,100%{opacity:0}}
+    .t2{animation:t2 11s linear infinite}
+    @keyframes t3{0%,43%{opacity:0}46%,88%{opacity:1}95%,100%{opacity:0}}
+    .t3{animation:t3 11s linear infinite}
+    @keyframes t4{0%,56%{opacity:0}59%,88%{opacity:1}95%,100%{opacity:0}}
+    .t4{animation:t4 11s linear infinite}
+    @keyframes ecg{from{stroke-dashoffset:520}to{stroke-dashoffset:0}}
+    .ecg{stroke-dasharray:520;animation:ecg 3s linear infinite}
+  </style>
+  <rect width="1280" height="300" fill="url(#bg)"/>
+  <g mask="url(#gm)"><rect class="drift" y="-40" width="1280" height="380" fill="url(#grid)"/></g>
+  <circle cx="150" cy="150" r="170" fill="#FF2BD6" fill-opacity=".07"/>
+  <circle cx="1120" cy="220" r="190" fill="#00C8D6" fill-opacity=".06"/>
+  <g filter="url(#glow)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="150" cy="150" r="64" stroke="#FF2BD6" stroke-width="4"/>
+    <g class="r1"><circle cx="150" cy="150" r="82" stroke="#00C8D6" stroke-width="3" stroke-dasharray="26 18"/></g>
+    <g class="r2"><circle cx="150" cy="150" r="98" stroke="#FF2BD6" stroke-opacity=".7" stroke-width="2" stroke-dasharray="4 14"/></g>
+    <path d="M150 112v76M112 150h76" stroke="#00C8D6" stroke-width="12"/>
+  </g>
+  <path class="ecg" d="M292 274H410L428 262L448 290L470 252L492 282L508 274H700" fill="none" stroke="#FF2BD6" stroke-width="2.5" filter="url(#glow2)"/>
+  <g class="m">
+    <rect x="1010" y="40" width="244" height="188" rx="6" fill="#0A0C10" fill-opacity=".85" stroke="#00C8D6" stroke-opacity=".5"/>
+    <circle cx="1026" cy="55" r="4" fill="#FF2BD6"/><circle cx="1040" cy="55" r="4" fill="#00C8D6"/><circle cx="1054" cy="55" r="4" fill="#F2F4F8" fill-opacity=".5"/>
+    <line x1="1010" y1="68" x2="1254" y2="68" stroke="#00C8D6" stroke-opacity=".3"/>
+    <text class="t0" x="1026" y="94" font-size="13.5" fill="#00C8D6">[ OK ] gpu driver</text>
+    <text class="t1" x="1026" y="120" font-size="13.5" fill="#00C8D6">[ OK ] vulkan 64/32</text>
+    <text class="t2" x="1026" y="146" font-size="13.5" fill="#FF2BD6">[ !! ] max_map_count</text>
+    <text class="t3" x="1026" y="172" font-size="13.5" fill="#00C8D6">[ OK ] wine prefix</text>
+    <text class="t4" x="1026" y="198" font-size="13.5" fill="#FF2BD6">[FIX?] raise limit</text>
+  </g>
+  <g class="m" font-size="92" font-weight="800" letter-spacing="8">
+    <text class="gl1" x="290" y="168" fill="#FF2BD6" fill-opacity=".85">PROTONMD</text>
+    <text class="gl2" x="290" y="168" fill="#00C8D6" fill-opacity=".85">PROTONMD</text>
+    <text x="290" y="168" fill="#F2F4F8" filter="url(#glow2)">PROTONMD</text>
+  </g>
+  <rect x="292" y="192" width="700" height="3" fill="url(#beam)"/>
+  <text class="m" x="292" y="238" font-size="22" letter-spacing="3" fill="#00C8D6"><tspan fill="#FF2BD6">&gt;</tspan> DIAGNOSE WHY YOUR LINUX GAME WON'T RUN<tspan class="cur">_</tspan></text>
+  <g fill="none" stroke="#00C8D6" stroke-width="3" stroke-linecap="square" stroke-opacity=".9" filter="url(#glow2)">
+    <path d="M16 46V16H46"/><path d="M1234 16H1264V46"/><path d="M16 254V284H46"/><path d="M1264 254V284H1234"/>
+  </g>
+  <g class="m" font-size="12" letter-spacing="2">
+    <circle class="rec" cx="38" cy="38" r="4.5" fill="#FF2BD6"/><text x="50" y="42" fill="#FF2BD6">LIVE</text>
+    <text x="1230" y="278" text-anchor="end" fill="#00C8D6" fill-opacity=".85">GTK4 · LIBADWAITA · PROTON</text>
+  </g>
+  <rect width="1280" height="300" fill="url(#scan)"/>
+  <rect class="sweep" width="1280" height="3" fill="#00C8D6" fill-opacity=".55" filter="url(#glow2)"/>
+  <rect x="1" y="1" width="1278" height="298" fill="none" stroke="#00C8D6" stroke-opacity=".35"/>
+</svg>
