@@ -48,16 +48,16 @@ safe fixes, each one shown and confirmed before it runs.
 
 Download from the [latest release](https://github.com/metalmike17/protonmd/releases/latest). Each file has a `.sha256` next to it.
 
-**AppImage** (x86_64, bundles Python and GTK; built on a recent distro, so it needs a similarly recent glibc):
+**AppImage** (x86_64, bundles Python and GTK; built on Ubuntu 24.04, so it runs on Ubuntu 24.04+, Debian 13+, Fedora 40+ and similar):
 
     chmod +x ProtonMD-*-x86_64.AppImage
     ./ProtonMD-*-x86_64.AppImage
 
-**Debian / Ubuntu / Mint** (needs GTK 4 and libadwaita 1, so Debian 12+ or Ubuntu 22.04+):
+**Debian / Ubuntu / Mint** (needs libadwaita 1.5 or newer, so Ubuntu 24.04+, Debian 13+ or Mint 22+; older releases should use the Flatpak):
 
     sudo apt install ./protonmd_*_all.deb
 
-**Fedora**:
+**Fedora 40+**:
 
     sudo dnf install ./protonmd-*.noarch.rpm
 

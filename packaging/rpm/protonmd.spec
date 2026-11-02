@@ -1,5 +1,5 @@
 Name:           protonmd
-Version:        0.1.4
+Version:        0.1.5
 Release:        1%{?dist}
 Summary:        Diagnose why Linux games won't run
 License:        GPL-3.0-or-later
@@ -9,7 +9,7 @@ BuildArch:      noarch
 Requires:       python3 >= 3.10
 Requires:       python3-gobject
 Requires:       gtk4
-Requires:       libadwaita
+Requires:       libadwaita >= 1.5
 Recommends:     vulkan-tools
 Suggests:       gamemode
 Suggests:       winetricks
@@ -50,6 +50,9 @@ install -Dm644 data/io.github.metalmike17.ProtonMD.svg -t %{buildroot}%{_datadir
 %{_datadir}/icons/hicolor/scalable/apps/io.github.metalmike17.ProtonMD.svg
 
 %changelog
+* Mon Nov 02 2026 metalmike17 <michaeljg0717@gmail.com> - 0.1.5-1
+- Neon theme, Libraries manager (hide old drives), libadwaita >= 1.5 requirement, new AppImage
+
 * Wed Oct 21 2026 metalmike17 <michaeljg0717@gmail.com> - 0.1.4-1
 - Version bump; no code changes
 

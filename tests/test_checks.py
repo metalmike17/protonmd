@@ -102,3 +102,51 @@ class Tests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LibraryHiding(unittest.TestCase):
+    def setUp(self):
+        from unittest import mock
+        p = mock.patch.object(steam, "_mount_bases", return_value=[])  # ignore real mounted drives
+        p.start()
+        self.addCleanup(p.stop)
+
+    def make(self, tmp):
+        root = make_steam(tmp)
+        other = Path(tmp) / "olddrive" / "SteamLibrary"
+        (other / "steamapps").mkdir(parents=True)
+        (other / "steamapps/appmanifest_77.acf").write_text(
+            '"AppState"\n{\n"appid" "77"\n"name" "Old Game"\n"installdir" "Old"\n"StateFlags" "4"\n}\n')
+        lf = root / "steamapps/libraryfolders.vdf"
+        lf.write_text(f'"libraryfolders"\n{{\n"0"\n{{\n"path" "{root}"\n}}\n"1"\n{{\n"path" "{other}"\n}}\n}}\n')
+        return root, other
+
+    def test_hidden_library_games_are_skipped(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root, other = self.make(tmp)
+            names = {g.name for g in steam.scan_games(root)}
+            self.assertEqual(names, {"Test Game", "Old Game"})
+            names = {g.name for g in steam.scan_games(root, {os.path.realpath(other)})}
+            self.assertEqual(names, {"Test Game"})
+            everything = {os.path.realpath(p) for p, _ in steam.all_libraries(root)}
+            self.assertEqual(steam.scan_games(root, everything), [])
+
+    def test_all_libraries_flags_registered(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root, other = self.make(tmp)
+            libs = dict(steam.all_libraries(root))
+            self.assertTrue(libs[str(other)])
+            self.assertTrue(libs[str(root)])
+
+    def test_config_roundtrip(self):
+        from protonmd import config
+        with tempfile.TemporaryDirectory() as tmp:
+            os.environ["XDG_CONFIG_HOME"] = tmp
+            try:
+                self.assertEqual(config.hidden_libraries(), set())
+                config.set_hidden_libraries(["/a", "/b", "/a"])
+                self.assertEqual(config.hidden_libraries(), {"/a", "/b"})
+                Path(tmp, "protonmd", "config.json").write_text("not json")
+                self.assertEqual(config.hidden_libraries(), set())  # corrupt file is ignored
+            finally:
+                del os.environ["XDG_CONFIG_HOME"]

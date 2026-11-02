@@ -24,7 +24,7 @@ Package: protonmd
 Version: $VER
 Architecture: all
 Maintainer: metalmike17 <michaeljg0717@gmail.com>
-Depends: python3 (>= 3.10), python3-gi, gir1.2-gtk-4.0, gir1.2-adw-1
+Depends: python3 (>= 3.10), python3-gi, gir1.2-gtk-4.0, gir1.2-adw-1 (>= 1.5)
 Recommends: vulkan-tools
 Suggests: gamemode, winetricks
 Section: utils

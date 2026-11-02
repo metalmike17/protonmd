@@ -70,9 +70,18 @@ def library_paths(root):
     return paths
 
 
-def scan_games(root):
+def all_libraries(root):
+    """Every reachable Steam library as (path, registered_with_steam)."""
+    registered = {os.path.realpath(p) for p in _registered_libraries(root)}
+    return [(p, os.path.realpath(p) in registered) for p in library_paths(root)]
+
+
+def scan_games(root, hidden=()):
+    """Installed games and tools. Libraries whose real path is in `hidden` are skipped."""
     games = []
     for lib in library_paths(root):
+        if os.path.realpath(lib) in hidden:
+            continue
         for acf in sorted(glob.glob(f"{lib}/steamapps/appmanifest_*.acf")):
             try:
                 st = vdf.get(vdf.load(acf), "AppState", default={})

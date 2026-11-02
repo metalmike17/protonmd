@@ -1,0 +1,14 @@
+#!/bin/sh
+HERE="$(dirname "$(readlink -f "$0")")"
+PYV="$(ls "$HERE/usr/lib" | grep -m1 '^python3\.[0-9]*$' | sed 's/python//')"
+export PYTHONHOME="$HERE/usr"
+export PYTHONPATH="$HERE/usr/lib/python$PYV/site-packages"
+export PYTHONDONTWRITEBYTECODE=1
+export LD_LIBRARY_PATH="$HERE/usr/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+export GI_TYPELIB_PATH="$HERE/usr/lib/girepository-1.0"
+export GSETTINGS_SCHEMA_DIR="$HERE/usr/share/glib-2.0/schemas"
+export XDG_DATA_DIRS="$HERE/usr/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+# gdk-pixbuf loader cache with this AppImage's real mount path
+CACHE="${XDG_RUNTIME_DIR:-/tmp}/protonmd-pixbuf-$(id -u).cache"
+sed "s|@APPDIR@|$HERE|g" "$HERE/usr/lib/gdk-pixbuf/loaders.cache.in" > "$CACHE" 2>/dev/null && export GDK_PIXBUF_MODULE_FILE="$CACHE"
+exec "$HERE/usr/bin/python3" -m protonmd "$@"
