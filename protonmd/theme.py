@@ -48,7 +48,7 @@ headerbar {{
   color: #F2F4F8;
   text-shadow: 0 0 10px alpha({CYAN}, .95), 2px 0 alpha({MAGENTA}, .7), -2px 0 alpha({CYAN}, .7);
 }}
-windowtitle .title {{ font-family: "JetBrains Mono", monospace; letter-spacing: 1px; }}
+windowtitle .title {{ font-family: "JetBrains Mono", monospace; font-size: 14px; letter-spacing: 0; }}
 windowtitle .subtitle {{ color: {CYAN}; }}
 
 /* sidebar */

@@ -36,6 +36,9 @@ class Window(Adw.ApplicationWindow):
         self.listbox.connect("row-selected", self.on_row_selected)
         side_view = Adw.ToolbarView()
         side_head = Adw.HeaderBar()
+        logo = os.path.join(os.path.dirname(__file__), "data", "logo.svg")
+        if os.path.exists(logo):
+            side_head.pack_start(Gtk.Image(file=logo, pixel_size=26, margin_start=4))
         side_head.set_title_widget(Gtk.Label(label="PROTONMD", css_classes=["neon-title"]))
         side_view.add_top_bar(side_head)
         self.libs_btn = Gtk.Button(css_classes=["libraries-btn"],

@@ -14,3 +14,6 @@ protonmd = "protonmd.launcher:main"
 
 [tool.setuptools]
 packages = ["protonmd", "protonmd.checks"]
+
+[tool.setuptools.package-data]
+protonmd = ["data/*.svg"]
