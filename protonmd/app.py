@@ -210,6 +210,8 @@ class Window(Adw.ApplicationWindow):
         row.set_subtitle(GLib.markup_escape_text(text))
         row.set_subtitle_selectable(True)
         icon_name, css = ICONS[r.status]
+        if r.status >= Status.WARN:
+            row.add_css_class("st-fail" if r.status == Status.FAIL else "st-warn")
         img = Gtk.Image(icon_name=icon_name, css_classes=[css])
         row.add_prefix(img)
         if r.fix:

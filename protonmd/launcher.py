@@ -2,6 +2,9 @@ import sys
 
 
 def main():
+    if "--demo" in sys.argv:
+        from . import demo
+        demo.install()
     if "--cli" in sys.argv:
         from .cli import main as cli_main
         return cli_main([a for a in sys.argv[1:] if a != "--cli"])

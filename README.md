@@ -16,7 +16,9 @@
 
 <br>
 
-<img src="docs/screenshot.png" alt="ProtonMD checking a game" width="760">
+<img src="docs/screenshot.png" alt="ProtonMD finding a missing runtime in a game" width="760">
+
+<sub>Screenshots use sample data (`protonmd --demo`), not a real Steam library.</sub>
 
 </div>
 

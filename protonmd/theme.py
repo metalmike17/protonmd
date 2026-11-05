@@ -113,6 +113,17 @@ button.destructive-action {{
 button.destructive-action:hover {{ background-color: alpha({MAGENTA}, .32); }}
 headerbar button {{ border-radius: 6px; }}
 
+/* problem rows get a glowing edge so they stand out at a glance */
+list.boxed-list > row.st-warn {{
+  background-image: linear-gradient(to right, alpha({AMBER}, .10), transparent 60%);
+  box-shadow: inset 3px 0 0 {AMBER};
+}}
+list.boxed-list > row.st-fail {{
+  background-image: linear-gradient(to right, alpha({MAGENTA}, .14), transparent 60%);
+  box-shadow: inset 3px 0 0 {MAGENTA};
+}}
+list.boxed-list > row.st-fail .title {{ color: #FFD6F6; text-shadow: 0 0 8px alpha({MAGENTA}, .6); }}
+
 /* status icons glow */
 image.success {{ -gtk-icon-shadow: 0 0 6px alpha({MINT}, .8); }}
 image.warning {{ -gtk-icon-shadow: 0 0 6px alpha({AMBER}, .8); }}
