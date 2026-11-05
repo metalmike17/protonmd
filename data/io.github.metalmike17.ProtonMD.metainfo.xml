@@ -14,13 +14,14 @@
   <developer id="io.github.metalmike17"><name>metalmike17</name></developer>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/metalmike17/protonmd/v0.1.6/docs/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/metalmike17/protonmd/v0.1.7/docs/screenshot.png</image>
       <caption>Finding a missing runtime in a game (sample data), plus the passing checks</caption>
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">io.github.metalmike17.ProtonMD.desktop</launchable>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.1.7" date="2026-11-05"/>
     <release version="0.1.6" date="2026-11-05"/>
     <release version="0.1.5" date="2026-11-02"/>
     <release version="0.1.4" date="2026-10-21"/>

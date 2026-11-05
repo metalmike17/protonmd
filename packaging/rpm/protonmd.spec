@@ -1,5 +1,5 @@
 Name:           protonmd
-Version:        0.1.6
+Version:        0.1.7
 Release:        1%{?dist}
 Summary:        Diagnose why Linux games won't run
 License:        GPL-3.0-or-later
@@ -50,6 +50,9 @@ install -Dm644 data/io.github.metalmike17.ProtonMD.svg -t %{buildroot}%{_datadir
 %{_datadir}/icons/hicolor/scalable/apps/io.github.metalmike17.ProtonMD.svg
 
 %changelog
+* Thu Nov 05 2026 metalmike17 <michaeljg0717@gmail.com> - 0.1.7-1
+- Logo in the header bar, long game names fit in the title
+
 * Thu Nov 05 2026 metalmike17 <michaeljg0717@gmail.com> - 0.1.6-1
 - New cyberpunk icon, glowing problem rows, --demo sample mode, refreshed screenshots
 
