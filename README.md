@@ -16,9 +16,13 @@
 
 <br>
 
-<img src="docs/screenshot.png" alt="ProtonMD finding a missing runtime in a game" width="760">
+<img src="docs/screenshot.png" alt="ProtonMD system check" width="760">
 
-<sub>Screenshots use sample data (`protonmd --demo`), not a real Steam library.</sub>
+<details><summary>A game with a problem (sample data from <code>protonmd --demo</code>)</summary>
+
+<img src="docs/screenshot-warning.png" alt="ProtonMD flagging bad launch options" width="640">
+
+</details>
 
 </div>
 

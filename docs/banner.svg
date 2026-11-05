@@ -44,7 +44,10 @@
     <circle cx="150" cy="150" r="64" stroke="#FF2BD6" stroke-width="4"/>
     <g class="r1"><circle cx="150" cy="150" r="82" stroke="#00C8D6" stroke-width="3" stroke-dasharray="26 18"/></g>
     <g class="r2"><circle cx="150" cy="150" r="98" stroke="#FF2BD6" stroke-opacity=".7" stroke-width="2" stroke-dasharray="4 14"/></g>
-    <path d="M150 112v76M112 150h76" stroke="#00C8D6" stroke-width="12"/>
+    <g transform="translate(150 150) scale(.95) translate(-64 -64)">
+      <path d="M52 24H76V52H104V76H76V104H52V76H24V52H52Z" fill="#0D0F14" stroke="#00C8D6" stroke-width="6"/>
+      <path d="M30 64H50L58 48L68 82L76 64H98" stroke="#FF2BD6" stroke-width="6"/>
+    </g>
   </g>
   <path class="ecg" d="M292 274H410L428 262L448 290L470 252L492 282L508 274H700" fill="none" stroke="#FF2BD6" stroke-width="2.5" filter="url(#glow2)"/>
   <g class="m">
